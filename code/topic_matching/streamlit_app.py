@@ -1,33 +1,32 @@
 import streamlit as st
-from app import load_users, load_content, match_content
+import requests
 
 def main():
-    st.title("User Content Matching")
+    st.title("Interests & Content Matching")
+    st.write("Visualize the existing matching of content and users interest or drag and drop json files containing new users interests and content to be added to the database") 
+    if st.button('Run Matching'):
+        st.write("Button clicked, calling backend...")  # Debugging line
 
-    # Debug statements to ensure data is being loaded correctly
-    st.write("Loading users...")
-    users = load_users()
-    print('users', users)
-    st.write(users)
+        # Call the Flask backend to run the matching logic
+        try:
+            response = requests.get("http://127.0.0.1:5000/run_matching")
+            if response.status_code == 200:
+                matched_results = response.json()
+                # Display results
+                for result in matched_results:
+                    st.header(f"User: {result['user']} should see the content with ID")
+                    if result['content']:
+                        for item in result['content']:
+                            st.subheader(f"Title: {item['title']}")
+                            st.write(item['id'])
+                            st.write(item['content'])
+                            st.write(f"Tags: {item['tags']}")
+                    else:
+                        st.write("No matching content found.")
+            else:
+                st.error("Failed to run matching")
+        except requests.exceptions.RequestException as e:
+            st.error(f"Error calling backend: {e}")
 
-    st.write("Loading content...")
-    content = load_content()
-    print('content', content)
-    st.write(content)
-
-    st.write("Matching content...")
-    matched_results = match_content(users, content)
-    print('matched_results', matched_results)
-    st.write(matched_results)
-
-    for result in matched_results:
-        st.header(result['user'])
-        if result['content']:
-            for item in result['content']:
-                st.subheader(item['title'])
-                st.write(item['content'])
-        else:
-            st.write("No matching content found.")
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

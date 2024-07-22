@@ -12,9 +12,9 @@ def load_content():
     return load_json('code/data/content.json')
 
 def is_relevant(user_interest, content_tag):
-    print('type of user_interest', type(user_interest))
-    print(user_interest['type'])
-    print(content_tag)
+    #print('type of user_interest', type(user_interest))
+    #print(user_interest['type'])
+    #print(content_tag)
     return (
         user_interest['type'] == content_tag['type'] and
         user_interest['value'] == content_tag['value'] and
@@ -25,13 +25,12 @@ def match_content(users, content):
     matched_results = []
     for user in users:
         relevant_content = []
-        print('user', user)
+        #print('user', user)
         # print(len(content))
-        # for interest in user['interests']:
         for el in content:
-            print('type of el in content', type(el))
-            print(el['tags'][0]['type'])
-            print(user['interests'])
+            #print('type of el in content', type(el))
+            #print(el['tags'][0]['type'])
+            #print(user['interests'])
             if any(is_relevant(interest, tag) for interest in user['interests'] for tag in el['tags']):
                 relevant_content.append(el)
                 matched_results.append({
