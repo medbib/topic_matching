@@ -91,3 +91,35 @@ Additional Notes:
 •	Ensure the application is user-friendly and intuitive.
 •	Consider edge cases where no content matches a user’s interests or where multiple pieces of content match.
 You are allowed to use Chatbots wherever you like to write your app, but you remain responsible for the product being elegant, readable, and working as designed.
+
+
+## How to intall
+
+$
+$
+$ pip install flask streamlit requests flask-cors
+
+
+## How to run and access the webapp
+
+1. Ensure the Flask backend is running:
+Open a terminal, navigate to your project directory, and run:
+$ python code/topic_matching/flask_backend.py
+
+2. Start the Streamlit app:
+Open a new terminal, navigate to your project directory, and run:
+$ streamlit run code/topic_matching/streamlit_app.py
+
+3. Access the Streamlit app in your browser:
+Open your web browser and navigate to http://localhost:8501.
+
+
+## How to run unit tests
+
+To run the tests, navigate to the project root directory and use unittest
+$ python -m unittest discover tests
+
+
+## Explanation of Matching Logic
+
+The matching logic determines relevant content for each user based on the interest types, values, and thresholds. A user's interest is considered relevant to a content tag if the interest's threshold is equal to or greater than the tag's threshold.
