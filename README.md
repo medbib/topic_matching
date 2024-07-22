@@ -21,15 +21,16 @@ $ bash install_requirements.sh
 
 ### 1. Ensure the Flask backend is running:
 Open a terminal, navigate to your project directory, and run:
+$ source activate topic_matching_env
 $ python code/topic_matching/flask_backend.py
 
 ### 2. Start the Streamlit app:
 Open a new terminal, navigate to your project directory, and run:
+$ source activate topic_matching_env
 $ streamlit run code/topic_matching/streamlit_app.py
 
 ### 3. Access the Streamlit app in your browser:
 Open your web browser and navigate to http://localhost:8501.
-Navigate through the app.
 
 ## How to run unit tests
 
