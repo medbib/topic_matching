@@ -1,0 +1,24 @@
+[{
+    "id": "123",
+    "title": "My title",
+    "content": "Some content about UK",
+    "tags": [
+        {
+            "type": "country",
+            "value": "UK",
+            "threshold": 0.25
+        }
+    ]
+},
+{
+    "id": "124",
+    "title": "My title2",
+    "content": "Some content about US",
+    "tags": [
+        {
+            "type": "country",
+            "value": "US",
+            "threshold": 0.25
+        }
+    ]
+}]

@@ -1,0 +1,30 @@
+[{
+    "name": "John Dow",
+    "interests": [
+        {
+            "type": "instrument",
+            "value": "VOD.L",
+            "threshold": 0.5
+        },
+        {
+            "type": "country",
+            "value": "UK",
+            "threshold": 0.24
+        }
+    ]
+},
+{
+    "name": "Polo",
+    "interests": [
+        {
+            "type": "instrument",
+            "value": "VOD.L",
+            "threshold": 0.5
+        },
+        {
+            "type": "country",
+            "value": "Switzerland",
+            "threshold": 0.24
+        }
+    ]
+}]
