@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from app import load_json, load_users, load_content, match_content, load_user_input_json
+from app import load_json, load_users, load_content, match_content
 
 app = Flask(__name__)
 CORS(app)
@@ -16,7 +16,6 @@ def run_matching():
 def run_new_matching():
     user_data = [request.json]
     print(type(user_data))
-    #user_input = load_user_input_json(user_data)
     content = load_content()
     print(user_data)
     matched_results = match_content(user_data, content)

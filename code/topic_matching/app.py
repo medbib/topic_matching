@@ -5,9 +5,6 @@ def load_json(file_path):
     with open(file_path) as f:
         return json.load(f)
 
-def load_user_input_json(user_input):
-    return json.load(user_input)
-
 def load_users():
     return load_json('code/data/users.json')
 

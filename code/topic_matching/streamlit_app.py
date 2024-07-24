@@ -48,7 +48,7 @@ def user_interest_input_formater():
         user_data = generate_json(name, interests)
         st.write("Generated JSON:")
         st.json(user_data)
-        print("JSON to be sent to Flask:", json.dumps(user_data, indent=2))
+        #print("JSON to be sent to Flask:", json.dumps(user_data, indent=2))
         # Call the Flask backend to run the matching logic
         try:
             # Send JSON to Flask backend
