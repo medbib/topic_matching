@@ -21,4 +21,16 @@
             "threshold": 0.25
         }
     ]
+},
+{
+    "id": "125",
+    "title": "My title3",
+    "content": "Some content about FR",
+    "tags": [
+        {
+            "type": "country",
+            "value": "FR",
+            "threshold": 0.25
+        }
+    ]
 }]

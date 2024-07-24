@@ -4,9 +4,14 @@ import json
 
 
 def display_match(result):
-    st.subheader(f"{result['user']} should consult the following content")
     if result['content']:
         for item in result['content']:
+            #for idx, item in enumerate(result['content']):
+            #with st.expander(f"Content {idx + 1}"):
+            if type(item) is list:
+                item = item[0]
+            st.write("Matched Content:")
+            print(item)
             st.subheader(item['title'])
             st.write(f"ID: {item['id']}")
             st.write(f"Tags: {item['tags']}")
@@ -46,8 +51,8 @@ def user_interest_input_formater():
     # Button to generate and send JSON
     if st.button("Find match"):
         user_data = generate_json(name, interests)
-        st.write("Generated JSON:")
-        st.json(user_data)
+        #st.write("Generated JSON:")
+        #st.json(user_data)
         #print("JSON to be sent to Flask:", json.dumps(user_data, indent=2))
         # Call the Flask backend to run the matching logic
         try:
@@ -55,8 +60,10 @@ def user_interest_input_formater():
             response = requests.post('http://127.0.0.1:5000/run_new_matching', json=user_data)
             
             if response.status_code == 200:
-                processed_data = response.json()
-                for result in processed_data:
+                matched_results = response.json()
+                print('matched_results', matched_results)
+                st.subheader(f"{matched_results[0]['user']} should consult the following content")
+                for result in matched_results:
                     display_match(result)
             else:
                 st.write("Failed to get a response from Flask backend")
