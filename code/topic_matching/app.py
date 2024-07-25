@@ -94,4 +94,5 @@ def get_alternative_suggestions(users, content):
             'user': user['name'],
             'suggestions': user_suggestions
         })
+    return suggestions
 
