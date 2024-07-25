@@ -1,5 +1,5 @@
 import unittest
-from code.topic_matching.app import load_users, load_content
+from code.topic_matching.backend.app import load_users, load_content
 
 class TestApp(unittest.TestCase):
 
