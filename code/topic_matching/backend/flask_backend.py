@@ -15,11 +15,8 @@ def run_matching():
 @app.route('/run_new_matching', methods=['POST'])
 def run_new_matching():
     user_data = [request.json]
-    #print(type(user_data))
     content = load_content()
-    #print('user_data', user_data)
     matched_results = match_content(user_data, content)
-    #print('matched result', matched_results)
     return jsonify(matched_results)
 
 @app.route('/run_matching_without_threshold', methods=['POST'])
