@@ -33,4 +33,16 @@
             "threshold": 0.25
         }
     ]
+},
+{
+    "id": "1",
+    "title": "My title100",
+    "content": "Some content about UK",
+    "tags": [
+        {
+            "type": "country",
+            "value": "UK",
+            "threshold": 0.7
+        }
+    ]
 }]

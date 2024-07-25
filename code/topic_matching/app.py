@@ -42,6 +42,8 @@ def match_content(users, content):
             for tag in content:
                 if is_relevant(el, tag['tags']):
                     relevant_content.append(tag)
+        # Sort matches by decreasing thresholds
+        relevant_content.sort(key=lambda x: max(tag['threshold'] for tag in x['tags']), reverse=True)
         matched_results.append({
                 'user': user['name'],
                 'content': relevant_content
