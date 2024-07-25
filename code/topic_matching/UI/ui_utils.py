@@ -39,7 +39,6 @@ def handle_no_match_case(user_data):
         Displays alternative contents corresponding sent back by flask.
     """
     # Call the backend to get matches without thresholds
-    print("in handle_no_match")
     alternative_matches = run_matching_without_threshold(user_data)
     if alternative_matches and matched_result_has_content(alternative_matches, 'content'):
         st.warning(f"Hi {alternative_matches[0]['user']}, no matches found with your threshold conditions.")
@@ -51,7 +50,7 @@ def handle_no_match_case(user_data):
         suggestions = get_suggestions_based_on_type(user_data)
         if suggestions and matched_result_has_content(suggestions[0]['suggestions'], content_attribute='values'):
             st.warning(f"Hi {suggestions[0]['user']}, we looked for alternative matching content with the same type and values but none was found.")
-            st.info("Here are some suggestions values based on your interest types:")
+            st.info("Here are some alternative suggestions of values based on your interest types:")
             for suggestion in suggestions:
                 st.write(f"**Type:** {suggestion['suggestions'][0]['type']}")
                 st.write(f"**Suggested Values:** {', '.join(suggestion['suggestions'][0]['values'])}")
