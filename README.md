@@ -10,8 +10,8 @@ This project is a simple web application that consumes two JSON files—one cont
 
 ## Installation
 
-### 1. Download and unzip the project
-$ cd topic_matching_project
+### 1. Download and unzip the project, enter the unzipped folder
+$ cd topic_matching
 
 ### 2. Run bash script to setup environment and install requirements
 $ bash install_requirements.sh
